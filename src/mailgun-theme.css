@@ -1,0 +1,453 @@
+/* ==========================================================================
+   Mailgun design system — shadcn/ui theme (Tailwind v4)
+   Source of truth: Figma "Mailgun — Design System (WIP DO NOT USE)"
+   File key: VpOw02Le5ZJP2IMFMKMJj3
+   Extracted: 2026-11-02 from variable collections: ref, sys, typography
+   Modes used: sys → "Mailgun Light" (:root) and "Mailgun Dark" (.dark)
+   NOT included: sys mode "Mailjet Light", the `comp` collection.
+
+   Usage — in your app's globals.css:
+     @import "tailwindcss";
+     @import "tw-animate-css";
+     @import "./mailgun-theme.css";
+
+   Structure mirrors Figma: primitives (ref) → semantic (sys) → shadcn names.
+   Semantic tokens reference primitives with var(), like Figma aliases do.
+   Lines marked DECIDED were open items resolved on 2026-11-02; where the value differs
+   from Figma sys the comment says "override". Figma sys has not been changed for those.
+   ========================================================================== */
+
+@custom-variant dark (&:is(.dark *));
+
+/* --------------------------------------------------------------------------
+   1. Primitives — Figma collection "ref" (single mode: Primitives)
+   `static` forces every variable to be emitted so var() refs always resolve.
+   -------------------------------------------------------------------------- */
+@theme static {
+  --color-basic-pure: #ffffff;
+  --color-basic-pure-inverted: #000000;
+
+  --color-neutral-00: #ffffff;
+  --color-neutral-50: #f7f9fa;
+  --color-neutral-100: #ebeef0;
+  --color-neutral-200: #dce2e5;
+  --color-neutral-300: #c9d1d6;
+  --color-neutral-350: #b7c1c7;
+  --color-neutral-400: #9ea9b0;
+  --color-neutral-500: #808a91;
+  --color-neutral-600: #626c73;
+  --color-neutral-700: #4b575e;
+  --color-neutral-800: #272f36;
+  --color-neutral-900: #1a2126;
+  --color-neutral-950: #14181c;
+
+  --color-raspberry-50: #fff6f5;
+  --color-raspberry-100: #ffe5e3;
+  --color-raspberry-200: #ffd8d6;
+  --color-raspberry-300: #ffbdbd;
+  --color-raspberry-350: #ffa8a8;
+  --color-raspberry-400: #ff8080;
+  --color-raspberry-500: #eb5454;
+  --color-raspberry-600: #bd3c41;
+  --color-raspberry-700: #993138;
+  --color-raspberry-800: #57181c;
+  --color-raspberry-900: #3d1215;
+
+  --color-pumpkin-50: #fff7f0;
+  --color-pumpkin-100: #ffe9d6;
+  --color-pumpkin-200: #ffd9bd;
+  --color-pumpkin-300: #ffc299;
+  --color-pumpkin-350: #ffad75;
+  --color-pumpkin-400: #f58b4e;
+  --color-pumpkin-500: #d66a33;
+  --color-pumpkin-600: #ad4e24;
+  --color-pumpkin-700: #8f3d1f;
+  --color-pumpkin-800: #4d2215;
+  --color-pumpkin-900: #361811;
+
+  --color-honey-50: #fff9eb;
+  --color-honey-100: #fceccb;
+  --color-honey-200: #ffdd99;
+  --color-honey-300: #ffca61;
+  --color-honey-350: #ffbe3c;
+  --color-honey-400: #eb9605;
+  --color-honey-500: #c77904;
+  --color-honey-600: #9e5a00;
+  --color-honey-700: #824703;
+  --color-honey-800: #472706;
+  --color-honey-900: #331b06;
+
+  --color-grass-50: #ecffeb;
+  --color-grass-100: #d7f5d7;
+  --color-grass-200: #c2edc5;
+  --color-grass-300: #99e0a2;
+  --color-grass-350: #77d486;
+  --color-grass-400: #53bd69;
+  --color-grass-500: #3d9956;
+  --color-grass-600: #2b7845;
+  --color-grass-700: #23613c;
+  --color-grass-800: #163323;
+  --color-grass-900: #102419;
+
+  --color-tropical-50: #f0faf4;
+  --color-tropical-100: #e2f0e8;
+  --color-tropical-200: #cee5da;
+  --color-tropical-300: #afdbcd;
+  --color-tropical-350: #80cfbc;
+  --color-tropical-400: #51b8a6;
+  --color-tropical-500: #06998b;
+  --color-tropical-600: #007874;
+  --color-tropical-700: #006063;
+  --color-tropical-800: #0c333b;
+  --color-tropical-900: #0e2329;
+
+  --color-ocean-50: #f2f9ff;
+  --color-ocean-100: #e0f1ff;
+  --color-ocean-200: #c7e5ff;
+  --color-ocean-300: #a8d4ff;
+  --color-ocean-350: #8ac4ff;
+  --color-ocean-400: #61abff;
+  --color-ocean-500: #3089f0;
+  --color-ocean-600: #0d68d1;
+  --color-ocean-700: #1454a8;
+  --color-ocean-800: #112f57;
+  --color-ocean-900: #0f2138;
+
+  --color-violet-50: #f8f5ff;
+  --color-violet-100: #efebff;
+  --color-violet-200: #e2dbff;
+  --color-violet-300: #d0c8fa;
+  --color-violet-350: #c1b6fa;
+  --color-violet-400: #a89bfa;
+  --color-violet-500: #857aeb;
+  --color-violet-600: #645dc2;
+  --color-violet-700: #4d4aa8;
+  --color-violet-800: #2a2a54;
+  --color-violet-900: #1e1e33;
+
+  --color-candy-50: #fff5fc;
+  --color-candy-100: #ffe5f7;
+  --color-candy-200: #ffd6f3;
+  --color-candy-300: #ffbdec;
+  --color-candy-350: #faa5e3;
+  --color-candy-400: #eb83cf;
+  --color-candy-500: #d15cb4;
+  --color-candy-600: #a3488e;
+  --color-candy-700: #8a3778;
+  --color-candy-800: #472140;
+  --color-candy-900: #2e192a;
+
+  /* Spacing (ref/spacing) — Tailwind's default 4px --spacing base covers all but 2px and 14px */
+  --mg-spacing-2: 2px;
+  --mg-spacing-14: 14px;
+  --mg-spacing-96: 96px;
+
+  /* Border width (ref/border-width): none 0, s 1, m 2, l 4 */
+  --mg-border-width-s: 1px;
+  --mg-border-width-m: 2px;
+  --mg-border-width-l: 4px;
+
+  /* Radius (ref/radius): none 0, s 4, m 8, l 12, xl 16, full 9999 */
+  --mg-radius-s: 4px;
+  --mg-radius-m: 8px;
+  --mg-radius-l: 12px;
+  --mg-radius-xl: 16px; /* ref/radius/xl, added to Figma 2026-11-02 */
+}
+
+/* --------------------------------------------------------------------------
+   2. Semantic tokens — shadcn names mapped from Figma collection "sys"
+   Light = "Mailgun Light"
+   -------------------------------------------------------------------------- */
+:root {
+  --radius: 0.5rem; /* ref/radius/m = 8px */
+
+  /* shadcn core */
+  --background: var(--color-neutral-50);            /* sys color/surface/canvas/default */
+  --foreground: var(--color-neutral-800);           /* sys color/text/default */
+  --card: var(--color-neutral-00);                  /* sys color/surface/elevated/default */
+  --card-foreground: var(--color-neutral-950);      /* sys color/text/on-elevated */
+  --popover: var(--color-neutral-00);               /* sys color/surface/elevated/default */
+  --popover-foreground: var(--color-neutral-950);   /* sys color/text/on-elevated */
+  --primary: var(--color-ocean-700);                /* sys color/primary/default */
+  --primary-foreground: var(--color-basic-pure);    /* sys color/primary/foreground */
+  --secondary: var(--color-neutral-00);             /* sys color/surface/secondary/default (Figma secondary = outlined) */
+  --secondary-foreground: var(--color-neutral-800); /* DECIDED: sys color/text/default */
+  --muted: var(--color-neutral-100);                /* DECIDED: sys color/surface/canvas/active */
+  --muted-foreground: var(--color-neutral-600);     /* sys color/text/muted */
+  --accent: var(--color-ocean-100);                 /* DECIDED: sys color/surface/secondary/hover */
+  --accent-foreground: var(--color-neutral-800);    /* DECIDED: sys color/text/default */
+  --destructive: var(--color-raspberry-600);        /* DECIDED override: sys danger-default is raspberry-500 (#eb5454), 3.5:1 with white; raspberry-600 gives 5.4:1 */
+  --destructive-foreground: var(--color-basic-pure);/* DECIDED: not in Figma sys */
+  --border: var(--color-neutral-200);               /* sys color/border/subtle */
+  --input: var(--color-neutral-400);                /* sys color/border/input/default */
+  --ring: var(--color-ocean-700);                   /* sys color/border/active */
+
+  /* charts — DECIDED: no chart tokens in sys; palette-based picks kept */
+  --chart-1: var(--color-ocean-600);
+  --chart-2: var(--color-tropical-500);
+  --chart-3: var(--color-honey-400);
+  --chart-4: var(--color-raspberry-500);
+  --chart-5: var(--color-violet-500);
+
+  /* Mailgun brand + interaction states */
+  --mg-brand: var(--color-raspberry-500);           /* sys color/surface/brand/default */
+  --mg-brand-hover: var(--color-raspberry-200);     /* sys color/surface/brand/hover */
+  --mg-brand-active: var(--color-raspberry-100);    /* sys color/surface/brand/active */
+  --mg-primary-hover: var(--color-ocean-600);       /* sys color/primary/hover */
+  --mg-primary-active: var(--color-ocean-800);      /* sys color/primary/active */
+  --mg-primary-disabled: var(--color-ocean-700);    /* sys color/primary/disabled */
+  --mg-surface-primary-hover: var(--color-ocean-50);   /* sys color/surface/primary/hover */
+  --mg-surface-primary-active: var(--color-ocean-100); /* sys color/surface/primary/active */
+  --mg-surface-secondary-active: var(--color-ocean-200); /* sys color/surface/secondary/active */
+
+  /* Surfaces */
+  --mg-surface-canvas-hover: var(--color-neutral-50);
+  --mg-surface-canvas-active: var(--color-neutral-100);
+  --mg-surface-canvas-disabled: var(--color-neutral-00);
+  --mg-surface-elevated-hover: var(--color-neutral-50);
+  --mg-surface-elevated-disabled: var(--color-neutral-00);
+  --mg-surface-sunken: var(--color-neutral-200);
+  --mg-surface-sunken-hover: var(--color-neutral-100);
+  --mg-surface-sunken-active: var(--color-neutral-300);
+  --mg-surface-sunken-disabled: var(--color-neutral-200);
+  --mg-surface-subtle: var(--color-neutral-200);
+  --mg-surface-subtle-hover: var(--color-neutral-50);
+  --mg-surface-subtle-active: var(--color-neutral-400);
+  --mg-surface-subtle-disabled: var(--color-neutral-200);
+  --mg-surface-input: var(--color-neutral-00);
+  --mg-surface-tertiary-hover: var(--color-neutral-50);
+  --mg-surface-tertiary-active: var(--color-neutral-200);
+  --mg-surface-dark: var(--color-neutral-900);
+  --mg-surface-darker: var(--color-neutral-950);
+
+  /* Text */
+  --mg-text-dark: var(--color-neutral-950);
+  --mg-text-inverse: var(--color-neutral-00);
+  --mg-text-disabled: var(--color-neutral-400);
+  --mg-text-interactive: var(--color-ocean-600);
+  --mg-text-error: var(--color-raspberry-500);
+  --mg-text-on-subtle: var(--color-neutral-950);
+  --mg-text-on-sunken: var(--color-neutral-700);
+
+  /* Borders */
+  --mg-border-strong: var(--color-neutral-600);
+  --mg-border-disabled: var(--color-neutral-100);
+  --mg-border-error: var(--color-raspberry-500);
+  --mg-border-dark: var(--color-neutral-900);
+  --mg-border-documentation: var(--color-violet-500);
+
+  /* Overlay */
+  --mg-overlay: #00000080;
+
+  /* Feedback: default / strong / subtle */
+  --mg-success: var(--color-grass-400);
+  --mg-success-strong: var(--color-grass-700);
+  --mg-success-subtle: var(--color-grass-100);
+  --mg-warning: var(--color-pumpkin-400);
+  --mg-warning-strong: var(--color-pumpkin-700);
+  --mg-warning-subtle: var(--color-pumpkin-100);
+  --mg-info: var(--color-ocean-600);
+  --mg-info-strong: var(--color-ocean-700);
+  --mg-info-subtle: var(--color-ocean-100);
+  --mg-danger: var(--color-raspberry-500);
+  --mg-danger-strong: var(--color-raspberry-700);
+  --mg-danger-subtle: var(--color-raspberry-100);
+  --mg-notice: var(--color-violet-500);
+  --mg-notice-subtle: var(--color-violet-100);
+  --mg-neutral: var(--color-neutral-400);
+  --mg-neutral-strong: var(--color-neutral-700);
+  --mg-neutral-subtle: var(--color-neutral-100);
+  --mg-feedback-background: var(--color-neutral-00);
+  --mg-feedback-border-width: 0px;                  /* sys dimensions/border/feedback: none in light */
+}
+
+/* "Mailgun Dark" */
+.dark {
+  --background: var(--color-neutral-950);           /* sys color/surface/canvas/default */
+  --foreground: var(--color-neutral-00);            /* sys color/text/default */
+  --card: var(--color-neutral-900);                 /* sys color/surface/elevated/default */
+  --card-foreground: var(--color-neutral-00);       /* sys color/text/on-elevated */
+  --popover: var(--color-neutral-900);              /* sys color/surface/elevated/default */
+  --popover-foreground: var(--color-neutral-00);    /* sys color/text/on-elevated */
+  --primary: var(--color-ocean-400);                /* sys color/primary/default — NOTE: white on #61abff is ~2.3:1 contrast */
+  --primary-foreground: var(--color-neutral-950);   /* DECIDED override: Figma uses white (2.4:1 on #61abff); neutral-950 gives 7.4:1 */
+  --secondary: var(--color-neutral-900);            /* sys color/surface/secondary/default */
+  --secondary-foreground: var(--color-neutral-00);  /* DECIDED: sys color/text/default */
+  --muted: var(--color-neutral-800);                /* DECIDED: sys color/surface/canvas/active */
+  --muted-foreground: var(--color-neutral-200);     /* sys color/text/muted */
+  --accent: var(--color-ocean-900);                 /* DECIDED: sys color/surface/secondary/hover */
+  --accent-foreground: var(--color-neutral-00);     /* DECIDED: sys color/text/default */
+  --destructive: var(--color-raspberry-400);        /* sys color/feedback/danger-default */
+  --destructive-foreground: var(--color-neutral-950);/* DECIDED: not in Figma sys */
+  --border: var(--color-neutral-700);               /* sys color/border/subtle */
+  --input: var(--color-neutral-700);                /* DECIDED override: Figma border/input/default is neutral-100 (#ebeef0); using border/default */
+  --ring: var(--color-ocean-300);                   /* sys color/border/active */
+
+  --chart-1: var(--color-ocean-400);
+  --chart-2: var(--color-tropical-400);
+  --chart-3: var(--color-honey-300);
+  --chart-4: var(--color-raspberry-400);
+  --chart-5: var(--color-violet-400);
+
+  --mg-brand: var(--color-raspberry-500);
+  --mg-brand-hover: var(--color-raspberry-800);
+  --mg-brand-active: var(--color-raspberry-900);
+  --mg-primary-hover: var(--color-ocean-300);
+  --mg-primary-active: var(--color-ocean-500);
+  --mg-primary-disabled: var(--color-ocean-800);
+  --mg-surface-primary-hover: var(--color-ocean-900);
+  --mg-surface-primary-active: var(--color-ocean-800);
+  --mg-surface-secondary-active: var(--color-ocean-800);
+
+  --mg-surface-canvas-hover: var(--color-neutral-900);
+  --mg-surface-canvas-active: var(--color-neutral-800);
+  --mg-surface-canvas-disabled: var(--color-neutral-950);
+  --mg-surface-elevated-hover: var(--color-neutral-800);
+  --mg-surface-elevated-disabled: var(--color-neutral-900);
+  --mg-surface-sunken: var(--color-neutral-700);
+  --mg-surface-sunken-hover: var(--color-neutral-600);
+  --mg-surface-sunken-active: var(--color-neutral-800);
+  --mg-surface-sunken-disabled: var(--color-neutral-700);
+  --mg-surface-subtle: var(--color-neutral-100);
+  --mg-surface-subtle-hover: var(--color-neutral-200);
+  --mg-surface-subtle-active: var(--color-neutral-300);
+  --mg-surface-subtle-disabled: var(--color-neutral-100);
+  --mg-surface-input: var(--color-neutral-800);
+  --mg-surface-tertiary-hover: var(--color-neutral-800);
+  --mg-surface-tertiary-active: var(--color-neutral-700);
+  --mg-surface-dark: var(--color-neutral-900);
+  --mg-surface-darker: var(--color-neutral-950);
+
+  --mg-text-dark: var(--color-neutral-50);
+  --mg-text-inverse: var(--color-neutral-950);
+  --mg-text-disabled: var(--color-neutral-600);
+  --mg-text-interactive: var(--color-ocean-300);
+  --mg-text-error: var(--color-raspberry-400);
+  --mg-text-on-subtle: var(--color-neutral-800);
+  --mg-text-on-sunken: var(--color-neutral-00);
+
+  --mg-border-strong: var(--color-neutral-200);
+  --mg-border-disabled: var(--color-neutral-900);
+  --mg-border-error: var(--color-raspberry-400);
+  --mg-border-dark: var(--color-neutral-900);
+  --mg-border-documentation: var(--color-violet-500);
+
+  --mg-overlay: #00000080;
+
+  --mg-success: var(--color-grass-400);
+  --mg-success-strong: var(--color-grass-300);
+  --mg-success-subtle: var(--color-grass-800);
+  --mg-warning: var(--color-pumpkin-400);
+  --mg-warning-strong: var(--color-pumpkin-300);
+  --mg-warning-subtle: var(--color-pumpkin-800);
+  --mg-info: var(--color-ocean-400);
+  --mg-info-strong: var(--color-ocean-300);
+  --mg-info-subtle: var(--color-ocean-800);
+  --mg-danger: var(--color-raspberry-400);
+  --mg-danger-strong: var(--color-raspberry-300);
+  --mg-danger-subtle: var(--color-raspberry-800);
+  --mg-notice: var(--color-violet-400);
+  --mg-notice-subtle: var(--color-violet-800);
+  --mg-neutral: var(--color-neutral-500);
+  --mg-neutral-strong: var(--color-neutral-300);
+  --mg-neutral-subtle: var(--color-neutral-800);
+  --mg-feedback-background: var(--color-neutral-800);
+  --mg-feedback-border-width: 1px;                  /* sys dimensions/border/feedback: border-width/s in dark */
+}
+
+/* --------------------------------------------------------------------------
+   3. Tailwind bindings — makes bg-primary, text-muted-foreground, etc. work
+   -------------------------------------------------------------------------- */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-brand: var(--mg-brand);
+  --color-success: var(--mg-success);
+  --color-success-strong: var(--mg-success-strong);
+  --color-success-subtle: var(--mg-success-subtle);
+  --color-warning: var(--mg-warning);
+  --color-warning-strong: var(--mg-warning-strong);
+  --color-warning-subtle: var(--mg-warning-subtle);
+  --color-info: var(--mg-info);
+  --color-info-strong: var(--mg-info-strong);
+  --color-info-subtle: var(--mg-info-subtle);
+  --color-danger: var(--mg-danger);
+  --color-danger-strong: var(--mg-danger-strong);
+  --color-danger-subtle: var(--mg-danger-subtle);
+  --color-notice: var(--mg-notice);
+  --color-notice-subtle: var(--mg-notice-subtle);
+
+  /* Radius: Figma has s=4, m=8, l=12. shadcn uses sm/md/lg/xl. */
+  --radius-sm: var(--mg-radius-s);
+  --radius-md: var(--mg-radius-m);
+  --radius-lg: var(--mg-radius-l);
+  --radius-xl: var(--mg-radius-xl); /* DECIDED: ref/radius/xl = 16px, added to Figma */
+}
+
+/* --------------------------------------------------------------------------
+   4. Typography — Figma collection "typography" + Typography page text styles
+   -------------------------------------------------------------------------- */
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: Monaco, ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* font-weight/regular 400, medium 500, semibold 600, bold 700 → Tailwind defaults match */
+
+  /* Text styles: Header1 DM Sans Medium 40/48 */
+  --text-h1: 2.5rem;
+  --text-h1--line-height: 3rem;
+  --text-h1--font-weight: 500;
+  /* Header2 DM Sans Bold 24/32 */
+  --text-h2: 1.5rem;
+  --text-h2--line-height: 2rem;
+  --text-h2--font-weight: 700;
+  /* Header3 DM Sans Bold 20/24 */
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 1.5rem;
+  --text-h3--font-weight: 700;
+  /* Header4 DM Sans Regular 16/24 */
+  --text-h4: 1rem;
+  --text-h4--line-height: 1.5rem;
+  --text-h4--font-weight: 400;
+  /* Body1 DM Sans Regular 16/24 (Body1Medium = same size, weight 500) */
+  --text-body-1: 1rem;
+  --text-body-1--line-height: 1.5rem;
+  /* Body2 DM Sans Regular 14/22 (Body2Medium = 14, weight 500, Figma line-height 24) */
+  --text-body-2: 0.875rem;
+  --text-body-2--line-height: 1.375rem;
+  /* Caption DM Sans Regular 12/16 (Text = same size, weight 500) */
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
