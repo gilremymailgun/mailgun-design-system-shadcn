@@ -196,6 +196,12 @@
   --mg-brand-solid-hover: var(--color-raspberry-400);  /* added: solid brand button hover (not in Figma sys) */
   --mg-brand-solid-active: var(--color-raspberry-600); /* added: solid brand button active (not in Figma sys) */
   --mg-text-on-brand: var(--color-basic-pure);         /* added: text on solid brand fill (not in Figma sys) */
+  --mg-tag-beta: var(--color-ocean-600);            /* sys color/tag/beta (same in every mode) */
+  --mg-tag-alpha: var(--color-raspberry-600);       /* sys color/tag/alpha */
+  --mg-tag-dev: var(--color-neutral-900);           /* sys color/tag/dev */
+  --mg-tag-new: var(--color-grass-600);             /* sys color/tag/new */
+  --mg-tag-upgrade: var(--color-violet-600);        /* sys color/tag/upgrade */
+  --mg-text-on-tag: var(--color-basic-pure);        /* override: Figma uses text/inverse, dark (#14181c) in dark mode */
   --mg-primary-hover: var(--color-ocean-600);       /* sys color/primary/hover */
   --mg-primary-active: var(--color-ocean-800);      /* sys color/primary/active */
   --mg-primary-disabled: var(--color-ocean-700);    /* sys color/primary/disabled */
@@ -298,6 +304,12 @@
   --mg-brand-solid-hover: var(--color-raspberry-400);
   --mg-brand-solid-active: var(--color-raspberry-600);
   --mg-text-on-brand: var(--color-basic-pure);
+  --mg-tag-beta: var(--color-ocean-600);
+  --mg-tag-alpha: var(--color-raspberry-600);
+  --mg-tag-dev: var(--color-neutral-900);
+  --mg-tag-new: var(--color-grass-600);
+  --mg-tag-upgrade: var(--color-violet-600);
+  --mg-text-on-tag: var(--color-basic-pure);
   --mg-primary-hover: var(--color-ocean-300);
   --mg-primary-active: var(--color-ocean-500);
   --mg-primary-disabled: var(--color-ocean-800);
