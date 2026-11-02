@@ -17,7 +17,7 @@ const buttonVariants = cva(
           "bg-primary text-primary-foreground hover:bg-[var(--mg-primary-hover)] active:bg-[var(--mg-primary-active)]",
         // Figma: brand
         brand:
-          "bg-[var(--mg-brand)] text-[var(--color-basic-pure)] hover:bg-[var(--color-raspberry-400)] active:bg-[var(--color-raspberry-600)]",
+          "bg-[var(--mg-brand)] text-[var(--mg-text-on-brand)] hover:bg-[var(--mg-brand-solid-hover)] active:bg-[var(--mg-brand-solid-active)]",
         // Figma: secondary (blue outline)
         secondary:
           "border-primary bg-card text-primary hover:bg-accent active:bg-[var(--mg-surface-secondary-active)]",

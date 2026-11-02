@@ -193,6 +193,9 @@
   --mg-brand: var(--color-raspberry-500);           /* sys color/surface/brand/default */
   --mg-brand-hover: var(--color-raspberry-200);     /* sys color/surface/brand/hover */
   --mg-brand-active: var(--color-raspberry-100);    /* sys color/surface/brand/active */
+  --mg-brand-solid-hover: var(--color-raspberry-400);  /* added: solid brand button hover (not in Figma sys) */
+  --mg-brand-solid-active: var(--color-raspberry-600); /* added: solid brand button active (not in Figma sys) */
+  --mg-text-on-brand: var(--color-basic-pure);         /* added: text on solid brand fill (not in Figma sys) */
   --mg-primary-hover: var(--color-ocean-600);       /* sys color/primary/hover */
   --mg-primary-active: var(--color-ocean-800);      /* sys color/primary/active */
   --mg-primary-disabled: var(--color-ocean-700);    /* sys color/primary/disabled */
@@ -292,6 +295,9 @@
   --mg-brand: var(--color-raspberry-500);
   --mg-brand-hover: var(--color-raspberry-800);
   --mg-brand-active: var(--color-raspberry-900);
+  --mg-brand-solid-hover: var(--color-raspberry-400);
+  --mg-brand-solid-active: var(--color-raspberry-600);
+  --mg-text-on-brand: var(--color-basic-pure);
   --mg-primary-hover: var(--color-ocean-300);
   --mg-primary-active: var(--color-ocean-500);
   --mg-primary-disabled: var(--color-ocean-800);
