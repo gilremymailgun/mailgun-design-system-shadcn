@@ -202,6 +202,7 @@
   --mg-tag-new: var(--color-grass-600);             /* sys color/tag/new */
   --mg-tag-upgrade: var(--color-violet-600);        /* sys color/tag/upgrade */
   --mg-text-on-tag: var(--color-basic-pure);        /* override: Figma uses text/inverse, dark (#14181c) in dark mode */
+  --mg-switch-handle: var(--color-basic-pure);      /* sys basic/pure (switch icon); same in every mode */
   --mg-primary-hover: var(--color-ocean-600);       /* sys color/primary/hover */
   --mg-primary-active: var(--color-ocean-800);      /* sys color/primary/active */
   --mg-primary-disabled: var(--color-ocean-700);    /* sys color/primary/disabled */
@@ -310,6 +311,7 @@
   --mg-tag-new: var(--color-grass-600);
   --mg-tag-upgrade: var(--color-violet-600);
   --mg-text-on-tag: var(--color-basic-pure);
+  --mg-switch-handle: var(--color-basic-pure);
   --mg-primary-hover: var(--color-ocean-300);
   --mg-primary-active: var(--color-ocean-500);
   --mg-primary-disabled: var(--color-ocean-800);
