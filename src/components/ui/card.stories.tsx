@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 
+import { Alert } from "./alert"
+import { Banner } from "./banner"
 import { Button } from "./button"
 import {
   Card,
@@ -92,6 +94,35 @@ export const MultipleSections: Story = {
         </CardHeader>
         <CardDescription>Last section, no separator.</CardDescription>
       </CardSection>
+    </Card>
+  ),
+}
+
+export const WithBannerAndAlert: Story = {
+  render: () => (
+    <Card className="max-w-xl">
+      <CardSection>
+        <CardHeader>
+          <CardTitle>Title of the card</CardTitle>
+          <CardCheck state="warning" />
+        </CardHeader>
+        <Banner type="info" onClose={() => {}}>
+          Banner between the title and the description (Figma: hasBanner).
+        </Banner>
+        <CardDescription>
+          Description text below the banner. The footer holds the button row and an
+          optional alert.
+        </CardDescription>
+      </CardSection>
+      <CardFooter>
+        <CardActions align="right">
+          <Button variant="tertiary">Cancel</Button>
+          <Button>Save</Button>
+        </CardActions>
+        <Alert type="warning">
+          Footer alert (Figma: hasAlert). Use for blocking messages tied to the card.
+        </Alert>
+      </CardFooter>
     </Card>
   ),
 }
