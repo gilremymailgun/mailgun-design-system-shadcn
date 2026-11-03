@@ -29,3 +29,16 @@ export const Disabled: Story = { render: () => <Demo disabled value={new Date()}
 export const PastDisabled: Story = {
   render: () => <Demo disabledDays={{ before: new Date() }} />,
 }
+
+export const WithTime: Story = {
+  render: () => <Demo withTime value={new Date()} />,
+}
+export const WithTime24h: Story = {
+  render: () => <Demo withTime hourCycle={24} value={new Date()} />,
+}
+export const ButtonTrigger: Story = {
+  render: () => <Demo variant="button" />,
+}
+export const ButtonTriggerWithTime: Story = {
+  render: () => <Demo variant="button" withTime value={new Date()} />,
+}
